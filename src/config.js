@@ -1,50 +1,46 @@
 module.exports = {
-  email: 'brittany.chiang@gmail.com',
+  email: 'juan@juanoa.com',
 
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/bchiang7',
+      url: 'https://github.com/juanoa',
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/bchiang7',
+      url: 'https://www.instagram.com/juanoa_',
     },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/bchiang7',
+      url: 'https://twitter.com/juanoa_',
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bchiang7',
-    },
-    {
-      name: 'Codepen',
-      url: 'https://codepen.io/bchiang7',
+      url: 'https://www.linkedin.com/in/juanoa',
     },
   ],
 
   navLinks: [
     {
-      name: 'About',
+      name: 'Sobre mi',
       url: '/#about',
     },
     {
-      name: 'Experience',
+      name: 'Experiencia',
       url: '/#jobs',
     },
     {
-      name: 'Work',
+      name: 'Proyectos',
       url: '/#projects',
     },
     {
-      name: 'Contact',
+      name: 'Contacto',
       url: '/#contact',
     },
   ],
 
   colors: {
-    green: '#64ffda',
+    green: '#5564eb',
     navy: '#0a192f',
     darkNavy: '#020c1b',
   },

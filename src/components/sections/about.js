@@ -132,31 +132,24 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'HTML & (S)CSS', 'React', 'Vue', 'Node.js', 'WordPress'];
+  const skills = ['PHP', 'Symphony', 'WordPress', 'JavaScript (ES6+)', 'HTML y CSS', 'React'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
-      <h2 className="numbered-heading">About Me</h2>
+      <h2 className="numbered-heading">Sobre mi</h2>
 
       <div className="inner">
         <StyledText>
           <div>
-            <p>Hello! I'm Brittany, a software engineer based in Boston, MA.</p>
+            {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
+            <p>¡Hola! Soy Juan, estudiante de Ingeniería Informática en Murcia (🇪🇸).</p>
 
             <p>
-              I enjoy creating things that live on the internet, whether that be websites,
-              applications, or anything in between. My goal is to always build products that provide
-              pixel-perfect, performant experiences.
+              Compagino mis estudios en la Universidad de Murcia con proyectos propios, trabajos de
+              freelancer y formación.
             </p>
 
-            <p>
-              Shortly after graduating from{' '}
-              <a href="https://www.ccis.northeastern.edu">Northeastern University</a>, I joined the
-              engineering team at <a href="https://www.upstatement.com">Upstatement</a> where I work
-              on a wide variety of interesting and meaningful projects on a daily basis.
-            </p>
-
-            <p>Here are a few technologies I've been working with recently:</p>
+            <p>Aquí tienes algunas tecnologías con las que he trabajado recientemente:</p>
           </div>
 
           <ul className="skills-list">
