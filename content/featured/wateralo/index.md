@@ -9,4 +9,4 @@ tech:
 showInProjects: true
 ---
 
-Tienda de botellas térmicas de acero inoxidable montada junto con 2 compañeros de facultad. Actualmente ya no se encuentra operativa.
+Tienda de botellas térmicas de acero inoxidable montada junto con 2 compañeros de facultad. Actualmente, ya no se encuentra operativa.

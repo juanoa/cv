@@ -52,8 +52,8 @@ const Hero = () => {
   const three = <h3 className="big-heading">Construyo cosas para Internet</h3>;
   const four = (
     <p>
-      Soy graduado en Ingeniería Infromática por la Universudad de Murcia y me dedico a desarrollar
-      páginas web y aplicaciones web de todo tipo.
+      Soy estudiante de Ingeniería Informática por la Universidad de Murcia y me dedico a
+      desarrollar páginas web y aplicaciones web de cualquier tipo.
     </p>
   );
   const five = (

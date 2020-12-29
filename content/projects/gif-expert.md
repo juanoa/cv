@@ -12,4 +12,4 @@ company: '-'
 showInProjects: true
 ---
 
-Buscador de GIFs utilizando la API de GIPHY
+Buscador de GIFs utilizando React y la API de GIPHY.
