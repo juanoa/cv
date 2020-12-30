@@ -1,6 +1,6 @@
 ---
 date: '2020-12-31'
-title: 'Freelancer'
+title: 'Desarrollador freelancer'
 company: 'Juan Otálora'
 location: 'Murcia, Murcia (ES)'
 range: 'Mayo 2018 - Actualidad'
