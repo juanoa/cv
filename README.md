@@ -9,12 +9,14 @@
   y editado por mi.
 </p>
 <p align="center">
-  <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
+  <a href="https://app.netlify.com/sites/cv-juanoa/deploys" target="_blank">
     <img src="https://api.netlify.com/api/v1/badges/88de9008-6a7b-400e-aa2e-c95a59046950/deploy-status" alt="Netlify Status" />
   </a>
 </p>
 
 ![demo](static/og.png)
+## 📖 Documentación
+Puedes consultar la documentación completa en [docs.juanoa.com](https://docs.juanoa.com/juanoa-cv/#/)
 
 ## 🛠 Instalación y puesta a punto
 
