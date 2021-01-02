@@ -2,10 +2,11 @@
 date: '3'
 title: 'Blog personal'
 cover: './juanoa-blog.png'
-external: 'https://juanoa.com'
+external: 'https://www.juanoa.com'
 tech:
-  - WordPress
-  - PHP
+  - React
+  - Gatsby
+  - GraphQL
   - HTML y CSS
 showInProjects: true
 ---

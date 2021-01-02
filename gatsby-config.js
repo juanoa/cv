@@ -2,7 +2,7 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Juan Otálora',
+    title: 'CV de Juan Otálora',
     description:
       'Hola, mi nombre es Juan Otálora, soy Ingeniero Informático y hago cosas para Internet.',
     siteUrl: 'https://cv.juanoa.com', // No trailing slash allowed!
