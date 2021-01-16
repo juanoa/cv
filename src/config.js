@@ -4,19 +4,19 @@ module.exports = {
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/juanoa',
+      url: 'https://go.juanoa.com/github',
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/juanoa_',
+      url: 'https://go.juanoa.com/instagram',
     },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/juanoa_',
+      url: 'https://go.juanoa.com/twitter',
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/juanoa',
+      url: 'https://go.juanoa.com/linkedin',
     },
   ],
 
