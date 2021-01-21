@@ -1,7 +1,7 @@
 ---
 date: '2020-12-31'
 title: 'CV'
-github: 'https://github.com/juanoa/cv'
+github: 'https://github.com/juanoa/cv.juanoa.com'
 external: 'https://cv.juanoa.com'
 ios: ''
 android: ''

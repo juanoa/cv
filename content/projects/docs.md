@@ -1,7 +1,7 @@
 ---
 date: '2020-12-15'
 title: 'Docs'
-github: 'https://github.com/juanoa/docs'
+github: ''
 external: 'https://docs.juanoa.com/'
 ios: ''
 android: ''

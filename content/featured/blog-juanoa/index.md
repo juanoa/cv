@@ -1,6 +1,7 @@
 ---
 date: '3'
 title: 'Blog personal'
+github: 'https://github.com/juanoa/juanoa.com'
 cover: './juanoa-blog.png'
 external: 'https://www.juanoa.com'
 tech:

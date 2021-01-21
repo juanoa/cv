@@ -1,8 +1,8 @@
 ---
 date: '2020-12-20'
 title: 'BigBang'
-github: 'https://github.com/juanoa/bigbang'
-external: 'https://bigbang.juanoa.com/'
+github: ''
+external: ''
 ios: ''
 android: ''
 tech:
