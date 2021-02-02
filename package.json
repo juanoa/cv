@@ -1,11 +1,11 @@
 {
-  "name": "v4",
-  "description": "Personal Website V4",
+  "name": "cv.juanoa.com",
+  "description": "Personal Website",
   "version": "1.0.0",
-  "author": "Brittany Chiang <brittany.chiang@gmail.com>",
+  "author": "Juan Otálora <juan@juanoa.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bchiang7/v4"
+    "url": "https://github.com/juanoa/cv.juanoa.com"
   },
   "keywords": [
     "gatsby"
