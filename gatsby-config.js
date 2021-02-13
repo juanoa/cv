@@ -28,7 +28,18 @@ module.exports = {
         icon: 'src/images/logo.png',
       },
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-source-strapi',
+      options: {
+        apiURL: 'https://api-juanoa.herokuapp.com',
+        contentTypes: [
+          // List of the Content Types you want to be able to request from Gatsby.
+          'job',
+          'project',
+        ],
+        queryLimit: 1000,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

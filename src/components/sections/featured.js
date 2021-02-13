@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import sr from '@utils/sr';
 import { srConfig } from '@config';
 import { Icon } from '@components/icons';
+import ReactMarkdown from 'react-markdown';
 
 const StyledProject = styled.div`
   display: grid;
@@ -249,33 +250,31 @@ const StyledProject = styled.div`
 const Featured = () => {
   const data = useStaticQuery(graphql`
     query {
-      featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/featured/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
+      allStrapiProject(
+        sort: { fields: [date], order: DESC }
+        filter: { showInFeatures: { eq: true } }
       ) {
         edges {
           node {
-            frontmatter {
-              title
-              cover {
-                childImageSharp {
-                  fluid(maxWidth: 700, traceSVG: { color: "#64ffda" }) {
-                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                  }
+            title
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 700, traceSVG: { color: "#64ffda" }) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
-              tech
-              github
-              external
             }
-            html
+            tech
+            github
+            external
+            description
           }
         }
       }
     }
   `);
 
-  const featuredProjects = data.featured.edges.filter(({ node }) => node);
+  const featuredProjects = data.allStrapiProject.edges;
 
   const revealTitle = useRef(null);
   const revealProjects = useRef([]);
@@ -293,19 +292,22 @@ const Featured = () => {
       <div>
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
-            const { frontmatter, html } = node;
-            const { external, title, tech, github, cover } = frontmatter;
+            const { external, title, tech, github, cover, description } = node;
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <p className="project-overline">Destacado</p>
                   <h3 className="project-title">{title}</h3>
-                  <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
+                  <ReactMarkdown
+                    className="project-description"
+                    source={description}
+                    escapeHtml={false}
+                  />
 
-                  {tech.length && (
+                  {tech.split(', ').length && (
                     <ul className="project-tech-list">
-                      {tech.map((tech, i) => (
+                      {tech.split(', ').map((tech, i) => (
                         <li key={i}>{tech}</li>
                       ))}
                     </ul>

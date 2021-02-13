@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { Icon } from '@components/icons';
+import ReactMarkdown from 'react-markdown';
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -143,22 +144,17 @@ const StyledProject = styled.div`
 const Projects = () => {
   const data = useStaticQuery(graphql`
     query {
-      projects: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/projects/" }
-          frontmatter: { showInProjects: { ne: false } }
-        }
-        sort: { fields: [frontmatter___date], order: DESC }
+      allStrapiProject(
+        sort: { fields: [date], order: DESC }
+        filter: { showInProjects: { eq: true } }
       ) {
         edges {
           node {
-            frontmatter {
-              title
-              tech
-              github
-              external
-            }
-            html
+            title
+            tech
+            github
+            external
+            description
           }
         }
       }
@@ -177,7 +173,7 @@ const Projects = () => {
   }, []);
 
   const GRID_LIMIT = 6;
-  const projects = data.projects.edges.filter(({ node }) => node);
+  const projects = data.allStrapiProject.edges;
   const firstSix = projects.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projects : firstSix;
 
@@ -192,8 +188,7 @@ const Projects = () => {
       <TransitionGroup className="projects-grid">
         {projectsToShow &&
           projectsToShow.map(({ node }, i) => {
-            const { frontmatter, html } = node;
-            const { github, external, title, tech } = frontmatter;
+            const { github, external, title, tech, description } = node;
 
             return (
               <CSSTransition
@@ -229,17 +224,17 @@ const Projects = () => {
                       </div>
 
                       <h3 className="project-title">{title}</h3>
-
-                      <div
+                      <ReactMarkdown
                         className="project-description"
-                        dangerouslySetInnerHTML={{ __html: html }}
+                        source={description}
+                        escapeHtml={false}
                       />
                     </header>
 
                     <footer>
-                      {tech && (
+                      {tech.split(', ') && (
                         <ul className="project-tech-list">
-                          {tech.map((tech, i) => (
+                          {tech.split(', ').map((tech, i) => (
                             <li key={i}>{tech}</li>
                           ))}
                         </ul>
@@ -251,10 +246,11 @@ const Projects = () => {
             );
           })}
       </TransitionGroup>
-
-      <button className="more-button" onClick={() => setShowMore(!showMore)}>
-        Mostrar {showMore ? 'Menos' : 'Más'}
-      </button>
+      {projects.length > 6 && (
+        <button className="more-button" onClick={() => setShowMore(!showMore)}>
+          Mostrar {showMore ? 'Menos' : 'Más'}
+        </button>
+      )}
     </StyledProjectsSection>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
@@ -156,27 +157,23 @@ const StyledTabContent = styled.div`
 const Jobs = () => {
   const data = useStaticQuery(graphql`
     query {
-      jobs: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/jobs/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
+      allStrapiJob(sort: { fields: [date], order: DESC }) {
         edges {
           node {
-            frontmatter {
-              title
-              company
-              location
-              range
-              url
-            }
-            html
+            date
+            title
+            company
+            location
+            url
+            range
+            achievements
           }
         }
       }
     }
   `);
 
-  const jobsData = data.jobs.edges;
+  const jobsData = data.allStrapiJob.edges;
 
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
@@ -226,7 +223,7 @@ const Jobs = () => {
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={onKeyDown}>
           {jobsData &&
             jobsData.map(({ node }, i) => {
-              const { company } = node.frontmatter;
+              const { company } = node;
               return (
                 <li key={i}>
                   <StyledTabButton
@@ -248,8 +245,7 @@ const Jobs = () => {
 
         {jobsData &&
           jobsData.map(({ node }, i) => {
-            const { frontmatter, html } = node;
-            const { title, url, company, range } = frontmatter;
+            const { title, url, company, range, achievements } = node;
 
             return (
               <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
@@ -272,7 +268,7 @@ const Jobs = () => {
 
                   <p className="range">{range}</p>
 
-                  <div dangerouslySetInnerHTML={{ __html: html }} />
+                  <ReactMarkdown source={achievements} escapeHtml={false} />
                 </StyledTabContent>
               </CSSTransition>
             );

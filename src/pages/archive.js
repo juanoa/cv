@@ -129,7 +129,7 @@ const StyledTableContainer = styled.div`
 `;
 
 const ArchivePage = ({ location, data }) => {
-  const projects = data.allMarkdownRemark.edges;
+  const projects = data.allStrapiProject.edges;
   const revealTitle = useRef(null);
   const revealTable = useRef(null);
   const revealProjects = useRef([]);
@@ -158,22 +158,13 @@ const ArchivePage = ({ location, data }) => {
                 <th>Título</th>
                 <th className="hide-on-mobile">Hecho en</th>
                 <th className="hide-on-mobile">Desarrollado con</th>
-                <th>Enlace</th>
+                <th>Enlaces</th>
               </tr>
             </thead>
             <tbody>
               {projects.length > 0 &&
                 projects.map(({ node }, i) => {
-                  const {
-                    date,
-                    github,
-                    external,
-                    ios,
-                    android,
-                    title,
-                    tech,
-                    company,
-                  } = node.frontmatter;
+                  const { date, github, external, ios, android, title, tech, job } = node;
                   return (
                     <tr key={i} ref={el => (revealProjects.current[i] = el)}>
                       <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
@@ -181,16 +172,18 @@ const ArchivePage = ({ location, data }) => {
                       <td className="title">{title}</td>
 
                       <td className="company hide-on-mobile">
-                        {company ? <span>{company}</span> : <span>—</span>}
+                        {job.company ? <span>{job.company}</span> : <span>—</span>}
                       </td>
 
                       <td className="tech hide-on-mobile">
-                        {tech.length > 0 &&
-                          tech.map((item, i) => (
+                        {tech.split(', ').length > 0 &&
+                          tech.split(', ').map((item, i) => (
                             <span key={i}>
                               {item}
                               {''}
-                              {i !== tech.length - 1 && <span className="separator">&middot;</span>}
+                              {i !== tech.split(', ').length - 1 && (
+                                <span className="separator">&middot;</span>
+                              )}
                             </span>
                           ))}
                       </td>
@@ -237,24 +230,20 @@ ArchivePage.propTypes = {
 export default ArchivePage;
 
 export const pageQuery = graphql`
-  {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/projects/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+  query {
+    allStrapiProject(sort: { fields: [date], order: DESC }) {
       edges {
         node {
-          frontmatter {
-            date
-            title
-            tech
-            github
-            external
-            ios
-            android
+          date
+          github
+          external
+          ios
+          android
+          title
+          tech
+          job {
             company
           }
-          html
         }
       }
     }
