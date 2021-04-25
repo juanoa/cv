@@ -43,8 +43,8 @@ const NotFoundPage = ({ location }) => {
           <CSSTransition timeout={500} classNames="fadeup">
             <StyledMainContainer className="fillHeight">
               <StyledTitle>404</StyledTitle>
-              <StyledSubtitle>Page Not Found</StyledSubtitle>
-              <StyledHomeButton to="/">Go Home</StyledHomeButton>
+              <StyledSubtitle>Página no encontrada</StyledSubtitle>
+              <StyledHomeButton to="/">Volver al inicio</StyledHomeButton>
             </StyledMainContainer>
           </CSSTransition>
         )}
