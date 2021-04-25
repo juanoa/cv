@@ -1,12 +1,10 @@
-const config = require('./src/config');
-
 module.exports = {
   siteMetadata: {
     title: 'Juan Otálora | Ingeniero Informático',
     description:
-      'Hola, mi nombre es Juan Otálora, soy Ingeniero Informático y hago cosas para Internet.',
-    siteUrl: 'https://cv.juanoa.com', // No trailing slash allowed!
-    image: '/og.png', // Path to your image you placed in the 'static' folder
+      '¡Hola! Mi nombre es Juan Otálora, soy Ingeniero Informático y hago cosas para Internet.',
+    siteUrl: 'https://cv.juanoa.com',
+    image: '/og.png',
     twitterUsername: '@juanoa_',
   },
   plugins: [
@@ -19,24 +17,43 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'JuanOtalora',
-        short_name: 'juanoa',
-        start_url: '/',
-        background_color: config.colors.darkNavy,
-        theme_color: config.colors.navy,
-        display: 'minimal-ui',
-        icon: 'src/images/logo.png',
+        name: `CV de Juan Otálora`,
+        short_name: `CV de juanoa.com`,
+        description: `Ingeniero informático`,
+        start_url: `/`,
+        background_color: `#e9e9e9`,
+        theme_color: `#5564eb`,
+        display: `minimal-ui`,
+        icon: `static/manifest/icon-512x512.png`,
+        icons: [
+          {
+            src: `static/manifest/icon-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `static/manifest/icon-256x256.png`,
+            sizes: `256x256`,
+            type: `image/png`,
+          },
+          {
+            src: `static/manifest/icon-384x384.png`,
+            sizes: `384x384`,
+            type: `image/png`,
+          },
+          {
+            src: `static/manifest/icon-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
       },
     },
     {
       resolve: 'gatsby-source-strapi',
       options: {
         apiURL: 'https://api-juanoa.herokuapp.com',
-        contentTypes: [
-          // List of the Content Types you want to be able to request from Gatsby.
-          'job',
-          'project',
-        ],
+        contentTypes: ['job', 'project'],
         queryLimit: 1000,
       },
     },
